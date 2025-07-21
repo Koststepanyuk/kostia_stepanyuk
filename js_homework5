@@ -1,0 +1,39 @@
+const services = {
+  list: [250, 150, 400, 100, 300], // масив з цінами послуг
+
+  // Метод для обчислення загальної вартості
+  price: function () {
+    let total = 0;
+    for (let i = 0; i < this.list.length; i++) {
+      total += this.list[i];
+    }
+    return total;
+  },
+
+  // Метод для знаходження мінімальної ціни
+  minPrice: function () {
+    let min = this.list[0];
+    for (let i = 1; i < this.list.length; i++) {
+      if (this.list[i] < min) {
+        min = this.list[i];
+      }
+    }
+    return min;
+  },
+
+  // Метод для знаходження максимальної ціни
+  maxPrice: function () {
+    let max = this.list[0];
+    for (let i = 1; i < this.list.length; i++) {
+      if (this.list[i] > max) {
+        max = this.list[i];
+      }
+    }
+    return max;
+  }
+};
+
+// 🔎 Тестування:
+console.log("Загальна вартість:", services.price());        // → 1200
+console.log("Мінімальна ціна:", services.minPrice());        // → 100
+console.log("Максимальна ціна:", services.maxPrice());       // → 400
